@@ -181,13 +181,31 @@
     <!-- ================= TRATTAMENTI ================= -->
     <section class="treatments section" id="trattamenti" aria-labelledby="tr-title">
       <div class="wrap">
-        <header class="section-head">
-          <p class="smallcaps label rv"><span class="label__n">03</span> Trattamenti</p>
-          <h2 class="display rv" id="tr-title">Le nostre cure, spiegate con chiarezza.</h2>
-          <p class="section-head__text rv">Una panoramica dei trattamenti dello studio. Durante la visita il professionista valuta il tuo caso e ti propone il percorso più adatto.</p>
+        <header class="section-head section-head--split">
+          <div>
+            <p class="smallcaps label rv"><span class="label__n">03</span> Trattamenti</p>
+            <h2 class="display rv" id="tr-title">Le nostre cure, spiegate con chiarezza.</h2>
+          </div>
+          <p class="section-head__text rv">Seleziona un trattamento per leggerne una breve descrizione. Durante la visita il professionista valuta il tuo caso e ti propone il percorso più adatto.</p>
         </header>
-        <nav class="tr-index rv" aria-label="Elenco dei trattamenti" data-tr-index></nav>
-        <div class="tr-list" data-treatments></div>
+
+        <!-- Elenco + pannello (computer) / fisarmonica (telefono): generati da script.js -->
+        <div class="trx rv" data-treatments>
+          <ol class="trx__list" data-trx-list></ol>
+          <div class="trx__panel" data-trx-panel>
+            <figure class="trx__media">
+              <img class="trx__img is-on" alt="">
+              <img class="trx__img" alt="">
+            </figure>
+            <div class="trx__body">
+              <p class="trx__n" data-trx-n></p>
+              <h3 class="trx__title" data-trx-title></h3>
+              <p class="trx__text" data-trx-text></p>
+              <ul class="trx__benefits" data-trx-benefits></ul>
+              <a class="link-line" href="#prenota">Richiedi informazioni</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

@@ -92,62 +92,63 @@ window.STUDIO = {
   ],
 
   /* ---------- Trattamenti ----------
-     active: true = mostrato, false = nascosto. */
+     active: true = mostrato, false = nascosto.
+     text: descrizione breve (2-3 righe, circa 140 caratteri). */
   treatments: [
     {
       active: true,
       name: 'Igiene e prevenzione',
       image: 'img/tr-igiene.jpg',
-      text: 'La seduta di igiene professionale rimuove placca e tartaro che lo spazzolino non riesce a eliminare. I controlli periodici permettono di individuare per tempo carie e problemi gengivali, quando sono più semplici da trattare.',
+      text: 'Pulizia professionale che rimuove placca e tartaro, con controlli periodici per individuare per tempo carie e problemi alle gengive.',
       benefits: ['Bocca più pulita e fresca', 'Controllo regolare di denti e gengive', 'Consigli personalizzati per l\'igiene di tutti i giorni']
     },
     {
       active: true,
       name: 'Conservativa ed endodonzia',
       image: 'img/tr-conservativa.jpg',
-      text: 'La conservativa cura i denti colpiti da carie o piccole fratture con otturazioni e ricostruzioni nel colore del dente. L\'endodonzia, la cosiddetta devitalizzazione, interviene quando è coinvolta la polpa: i canali vengono puliti, disinfettati e sigillati.',
+      text: 'Cura di carie e piccole fratture con otturazioni nel colore del dente; quando è coinvolta la polpa, devitalizzazione e sigillatura dei canali.',
       benefits: ['Si conserva il più possibile il dente naturale', 'Restauri in materiale del colore del dente', 'Si interviene prima che il problema si estenda']
     },
     {
       active: true,
       name: 'Ortodonzia e allineatori trasparenti',
       image: 'img/tr-ortodonzia.jpg',
-      text: 'L\'ortodonzia corregge la posizione dei denti e il modo in cui le arcate si chiudono, nei bambini come negli adulti. Oltre agli apparecchi tradizionali sono disponibili gli allineatori trasparenti: mascherine su misura, rimovibili e poco visibili.',
+      text: 'Correzione della posizione dei denti per bambini, ragazzi e adulti, con apparecchi tradizionali o allineatori trasparenti e rimovibili.',
       benefits: ['Percorsi per bambini, ragazzi e adulti', 'Allineatori trasparenti e rimovibili', 'Controlli programmati durante tutto il trattamento']
     },
     {
       active: true,
       name: 'Implantologia',
       image: 'img/tr-implantologia.jpg',
-      text: 'L\'impianto è una piccola radice in titanio inserita nell\'osso, su cui viene fissato un dente su misura. Prima di proporlo valutiamo con esami specifici la quantità di osso e lo stato di salute generale, e spieghiamo ogni fase del percorso.',
+      text: 'Una piccola radice in titanio inserita nell\'osso sostiene un dente su misura. Ogni fase viene valutata e spiegata prima di iniziare.',
       benefits: ['Sostituisce il dente mancante in modo fisso', 'Non richiede di limare i denti vicini', 'Fasi e tempi chiari fin dall\'inizio']
     },
     {
       active: true,
       name: 'Protesi',
       image: 'img/tr-protesi.jpg',
-      text: 'Le protesi ricostruiscono denti molto danneggiati o sostituiscono quelli mancanti. Possono essere fisse, come corone e ponti, oppure rimovibili. Vengono realizzate su misura in collaborazione con il laboratorio odontotecnico.',
+      text: 'Corone, ponti e protesi rimovibili realizzate su misura con il laboratorio odontotecnico, per ricostruire o sostituire i denti mancanti.',
       benefits: ['Soluzioni fisse o rimovibili', 'Ritorno a una masticazione confortevole', 'Forma e colore studiati sul singolo paziente']
     },
     {
       active: true,
       name: 'Estetica e sbiancamento',
       image: 'img/sorriso.jpg',
-      text: 'Lo sbiancamento schiarisce il colore dei denti con prodotti professionali, sotto controllo medico. Altri trattamenti, come le faccette, migliorano forma e proporzioni dei denti. Ogni intervento parte da una valutazione della salute di denti e gengive.',
+      text: 'Sbiancamento professionale e trattamenti come le faccette per migliorare colore e forma dei denti, dopo una valutazione della loro salute.',
       benefits: ['Valutazione preliminare accurata', 'Trattamenti eseguiti con prodotti professionali', 'Obiettivi realistici, concordati insieme']
     },
     {
       active: true,
       name: 'Pedodonzia',
       image: 'img/tr-pedodonzia.jpg',
-      text: 'La pedodonzia è l\'odontoiatria dedicata ai bambini. Le prime visite servono a prendere confidenza con lo studio, con tempi e modi adatti all\'età, e a impostare fin da subito una buona prevenzione.',
+      text: 'Visite pensate per i più piccoli, con tempi e modi adatti all\'età, per prendere confidenza con lo studio e impostare la prevenzione.',
       benefits: ['Approccio graduale e sereno', 'Prevenzione fin dai primi denti', 'Indicazioni pratiche per i genitori']
     },
     {
       active: true,
       name: 'Parodontologia',
       image: 'img/tr-parodontologia.jpg',
-      text: 'La parodontologia si occupa delle gengive e dei tessuti che sostengono i denti. Gengive che sanguinano o si ritirano sono un segnale da non trascurare: con una diagnosi precisa si imposta la terapia e un programma di mantenimento.',
+      text: 'Diagnosi e cura delle gengive che sanguinano o si ritirano, con terapie di pulizia profonda e un programma di controlli nel tempo.',
       benefits: ['Diagnosi dello stato delle gengive', 'Terapie di pulizia profonda', 'Programma di controlli nel tempo']
     }
   ],

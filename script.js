@@ -172,59 +172,154 @@
     io.observe(list);
   }
 
-  /* ---------- Trattamenti ---------- */
+  /* ---------- Trattamenti ----------
+     Computer (≥ 960px): elenco a sinistra, pannello unico a destra che
+     cambia al clic o al passaggio del mouse; frecce ↑ ↓ per scorrere.
+     Telefono: fisarmonica, un solo trattamento aperto alla volta. */
   function renderTreatments() {
-    const list = $('[data-treatments]');
-    const index = $('[data-tr-index]');
+    const box = $('[data-treatments]');
+    const list = $('[data-trx-list]');
     const items = (S.treatments || []).filter((t) => t && t.active && filled(t.name));
     if (!items.length) { $('#trattamenti').hidden = true; return; }
 
-    items.forEach((t, i) => {
-      const id = 'trattamento-' + (i + 1);
-      const n = pad(i + 1);
+    const desktop = window.matchMedia('(min-width: 960px)');
+    const altOf = (t) => t.alt || ('Immagine illustrativa: ' + t.name.toLowerCase());
 
-      const link = el('a', null);
-      link.href = '#' + id;
-      link.append(el('span', null, n), document.createTextNode(t.name));
-      index.append(link);
+    // Elenco (unico per entrambe le modalità)
+    const buttons = items.map((t, i) => {
+      const li = el('li', 'trx__item');
+      const btn = el('button', 'trx__btn');
+      btn.type = 'button';
+      btn.id = 'trx-btn-' + i;
+      btn.append(el('span', 'trx__n', pad(i + 1)), el('span', 'trx__name', t.name));
+      const icon = el('span', 'trx__icon');
+      icon.setAttribute('aria-hidden', 'true');
+      btn.append(icon);
 
-      const art = el('article', 'tr');
-      art.id = id;
-      art.setAttribute('aria-labelledby', id + '-t');
-
-      const fig = el('figure', 'tr__img reveal-img');
-      fig.dataset.reveal = i % 2 ? 'left' : 'right';
+      // Contenuto della fisarmonica (telefono)
+      const acc = el('div', 'trx__acc');
+      acc.id = 'trx-acc-' + i;
+      acc.setAttribute('role', 'region');
+      acc.setAttribute('aria-labelledby', btn.id);
+      const wrap = el('div');
+      const inner = el('div', 'trx__acc-inner');
       if (filled(t.image)) {
-        const img = el('img');
-        img.src = t.image;
-        img.alt = t.alt || ('Immagine illustrativa: ' + t.name.toLowerCase());
-        img.loading = 'lazy';
-        img.dataset.parallax = '0.06';
-        fig.append(img);
+        const img = el('img', 'trx__thumb');
+        img.src = t.image; img.alt = altOf(t); img.loading = 'lazy'; img.width = 96; img.height = 96;
+        inner.append(img);
       }
+      inner.append(el('p', null, t.text || ''));
+      const more = el('a', 'link-line', 'Richiedi informazioni');
+      more.href = '#prenota';
+      inner.append(more);
+      wrap.append(inner);
+      acc.append(wrap);
 
-      const body = el('div', 'tr__body');
-      body.append(el('p', 'tr__n rv', n));
-      const h = el('h3', 'tr__name rv', t.name);
-      h.id = id + '-t';
-      body.append(h);
-      if (filled(t.text)) body.append(el('p', 'tr__text rv', t.text));
-      const benefits = (t.benefits || []).filter(filled);
-      if (benefits.length) {
-        const box = el('div', 'tr__benefits rv');
-        box.append(el('p', 'smallcaps', 'Benefici'));
-        const ul = el('ul');
-        benefits.forEach((b) => ul.append(el('li', null, b)));
-        box.append(ul);
-        body.append(box);
-      }
-      const cta = el('a', 'link-line tr__cta rv', 'Richiedi informazioni');
-      cta.href = '#prenota';
-      body.append(cta);
-
-      art.append(fig, body);
-      list.append(art);
+      li.append(btn, acc);
+      list.append(li);
+      return btn;
     });
+
+    // Pannello unico (computer)
+    const panel = $('[data-trx-panel]');
+    const imgs = $$('.trx__img', panel);
+    const body = $('.trx__body', panel);
+    let current = -1, swapTimer = 0;
+
+    const fillPanel = (i) => {
+      const t = items[i];
+      $('[data-trx-n]', panel).textContent = pad(i + 1);
+      $('[data-trx-title]', panel).textContent = t.name;
+      $('[data-trx-text]', panel).textContent = t.text || '';
+      const ul = $('[data-trx-benefits]', panel);
+      ul.replaceChildren(...(t.benefits || []).filter(filled).map((b) => el('li', null, b)));
+      panel.setAttribute('aria-labelledby', buttons[i].id);
+    };
+
+    const select = (i, instant) => {
+      if (i === current) return;
+      current = i;
+      buttons.forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
+      const t = items[i];
+      // Dissolvenza incrociata della foto: la nuova entra sopra la precedente
+      const on = imgs.find((im) => im.classList.contains('is-on')) || imgs[0];
+      const off = imgs.find((im) => im !== on);
+      if (filled(t.image)) {
+        if (instant || reduced) { on.src = t.image; on.alt = altOf(t); }
+        else {
+          off.alt = altOf(t);
+          const show = () => { off.classList.add('is-on'); on.classList.remove('is-on'); };
+          off.onload = show;
+          off.src = t.image;
+          if (off.complete && off.naturalWidth) show();
+        }
+      }
+      // Dissolvenza del testo
+      clearTimeout(swapTimer);
+      if (instant || reduced) { fillPanel(i); return; }
+      body.classList.add('is-out');
+      swapTimer = setTimeout(() => { fillPanel(i); body.classList.remove('is-out'); }, 260);
+    };
+
+    // Fisarmonica: apre un elemento e chiude gli altri
+    const toggle = (i) => {
+      buttons.forEach((b, k) => {
+        const open = k === i && b.getAttribute('aria-expanded') !== 'true';
+        b.setAttribute('aria-expanded', String(open));
+        b.parentElement.classList.toggle('is-open', open);
+      });
+    };
+
+    const applyMode = () => {
+      if (desktop.matches) {
+        buttons.forEach((b, i) => {
+          b.removeAttribute('aria-expanded');
+          b.setAttribute('aria-controls', 'trx-panel');
+          b.parentElement.classList.remove('is-open');
+        });
+        panel.id = 'trx-panel';
+        panel.setAttribute('role', 'region');
+        const keep = current < 0 ? 0 : current;
+        current = -1;
+        select(keep, true);
+        // Precarica le foto per transizioni immediate
+        items.forEach((t) => { if (filled(t.image)) { const p = new Image(); p.src = t.image; } });
+      } else {
+        buttons.forEach((b, i) => {
+          b.removeAttribute('aria-current');
+          b.setAttribute('aria-expanded', 'false');
+          b.setAttribute('aria-controls', 'trx-acc-' + i);
+          b.parentElement.classList.remove('is-open');
+        });
+      }
+    };
+
+    buttons.forEach((b, i) => {
+      b.addEventListener('click', () => (desktop.matches ? select(i) : toggle(i)));
+      // Passaggio del mouse (solo computer), con un breve ritardo per evitare cambi involontari
+      let hoverTimer = 0;
+      b.addEventListener('mouseenter', () => {
+        if (!desktop.matches) return;
+        hoverTimer = setTimeout(() => select(i), 110);
+      });
+      b.addEventListener('mouseleave', () => clearTimeout(hoverTimer));
+      // Tastiera: frecce, Home/Fine; Invio e Spazio attivano il pulsante
+      b.addEventListener('keydown', (e) => {
+        let k = null;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') k = (i + 1) % buttons.length;
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') k = (i - 1 + buttons.length) % buttons.length;
+        if (e.key === 'Home') k = 0;
+        if (e.key === 'End') k = buttons.length - 1;
+        if (k === null) return;
+        e.preventDefault();
+        buttons[k].focus();
+        if (desktop.matches) select(k);
+      });
+    });
+
+    desktop.addEventListener('change', applyMode);
+    applyMode();
+    box.dataset.ready = 'true';
   }
 
   /* ---------- Recensioni ---------- */
