@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Aggiornare questi meta tag insieme a config.js (WhatsApp e i social non leggono JavaScript) -->
+  <title>Studio Dentistico Esempio — Pescara</title>
+  <meta name="description" content="Studio Dentistico Esempio a Pescara: cure dentali attente, in un ambiente sereno. Orari, trattamenti, contatti e richiesta di appuntamento.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#FCFAF6">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Studio Dentistico Esempio — Pescara">
+  <meta property="og:description" content="Cure dentali attente, in un ambiente sereno. Bozza dimostrativa con dati di esempio.">
+  <meta property="og:url" content="https://carestiadavide2004-cmd.github.io/bozza-dentista-v2/">
+  <meta property="og:image" content="https://carestiadavide2004-cmd.github.io/bozza-dentista-v2/img/anteprima.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Studio Dentistico Esempio, Pescara">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header" id="header">
+    <div class="header__bar wrap">
+      <a class="logo" href="#home">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4c-6 0-10 4.6-10 11v13h20V15C26 8.6 22 4 16 4z"/><path d="M11 28V17a5 5 0 0 1 10 0v11"/></svg>
+        <span class="logo__name" data-text="studio.name">Studio Dentistico</span>
+      </a>
+      <div class="header__actions">
+        <a class="btn btn--primary btn--sm header__cta" data-booking href="#prenota">Prenota una visita</a>
+        <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="menu" id="menu" aria-label="Sezioni del sito" hidden>
+      <div class="menu__inner wrap">
+        <ul class="menu__list">
+          <li><a href="#home">Inizio</a></li>
+          <li><a href="#dottore">Il dottore</a></li>
+          <li><a href="#trattamenti">Trattamenti</a></li>
+          <li><a href="#studio">Lo studio</a></li>
+          <li><a href="#prima-visita">La prima visita</a></li>
+          <li><a href="#urgenze">Urgenze</a></li>
+          <li><a href="#faq">Domande frequenti</a></li>
+          <li><a href="#prenota">Prenota</a></li>
+          <li><a href="#contatti">Contatti e orari</a></li>
+        </ul>
+        <div class="menu__aside">
+          <p class="menu__label">Telefono</p>
+          <a class="menu__phone" data-tel><span data-text="studio.phone"></span></a>
+          <p class="menu__label">Indirizzo</p>
+          <p><span data-text="studio.address"></span><br><span data-text="studio.cap"></span> <span data-text="studio.city"></span></p>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+      <div class="hero__grid wrap">
+        <div class="hero__text">
+          <h1 class="hero__studio" data-text="studio.name">Studio Dentistico</h1>
+          <p class="hero__claim">Cure dentali attente, in&nbsp;un&nbsp;ambiente sereno.</p>
+          <p class="hero__doctor"><span data-doctor-full></span>, odontoiatra a <span data-text="studio.city"></span>.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" data-booking href="#prenota">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+              Prenota una visita
+            </a>
+            <a class="btn btn--ghost" data-tel>
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.6 4.2-2 1.3a10.6 10.6 0 0 0 5.8 5.8l1.3-2 4.2 1.6v3a1.8 1.8 0 0 1-1.9 1.8A16.4 16.4 0 0 1 4.8 5.4a1.8 1.8 0 0 1 1.8-1.9z"/></svg>
+              Chiama
+            </a>
+          </div>
+          <a class="rating" data-rating hidden>
+            <svg class="rating__star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.6l-5.2 2.7 1-5.8-4.3-4.1 5.9-.8z"/></svg>
+            <span><strong data-text="google.rating"></strong> su Google</span>
+            <span class="rating__count">(<span data-text="google.reviews"></span> recensioni)</span>
+          </a>
+        </div>
+        <div class="hero__visual">
+          <div class="arch arch--hero">
+            <img src="img/hero-studio.jpg" alt="Poltrona odontoiatrica in un ambulatorio luminoso" width="1200" height="1800" fetchpriority="high">
+          </div>
+          <div class="hero__arch-line" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= IL DOTTORE ================= -->
+    <section class="section doctor" id="dottore" aria-labelledby="doctor-title">
+      <div class="wrap doctor__grid">
+        <div class="doctor__portrait">
+          <div class="arch arch--portrait" data-doctor-photo>
+            <!-- Segnaposto mostrato finché in config.js non c'è una foto -->
+            <div class="portrait-ph">
+              <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="46" r="20"/><path d="M24 104c4-22 18-34 36-34s32 12 36 34"/></svg>
+              <p>Foto del dottore<br>da inserire</p>
+            </div>
+          </div>
+        </div>
+        <div class="doctor__body">
+          <h2 class="h2" id="doctor-title">Il dottore</h2>
+          <p class="doctor__name"><span data-doctor-full></span></p>
+          <div class="doctor__intro" data-doctor-intro></div>
+
+          <div class="cv">
+            <h3 class="h3">Titoli e formazione</h3>
+            <ul class="cv__list">
+              <li class="cv__row">
+                <span class="cv__year" data-text="doctor.degree.year"></span>
+                <span class="cv__what">
+                  <span class="cv__title" data-text="doctor.degree.title"></span>
+                  <span class="cv__org" data-text="doctor.degree.university"></span>
+                </span>
+              </li>
+              <li class="cv__row">
+                <span class="cv__year">Albo</span>
+                <span class="cv__what">
+                  <span class="cv__title"><span data-registered></span> all'Albo degli Odontoiatri di <span data-text="doctor.albo.province"></span></span>
+                  <span class="cv__org">n. <span data-text="doctor.albo.number"></span></span>
+                </span>
+              </li>
+            </ul>
+            <h4 class="cv__sub" data-courses-title>Corsi e specializzazioni</h4>
+            <ul class="cv__list" data-courses></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TRATTAMENTI ================= -->
+    <section class="section section--mist treatments" id="trattamenti" aria-labelledby="tr-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="h2" id="tr-title">Trattamenti</h2>
+          <p class="lead">In parole semplici, di cosa ci occupiamo. Tocca un trattamento per leggere una breve spiegazione: i dettagli del tuo caso li valuterà il professionista durante la visita.</p>
+        </div>
+        <ul class="tr-grid" data-treatments></ul>
+      </div>
+    </section>
+
+    <!-- ================= LO STUDIO ================= -->
+    <section class="section studio" id="studio" aria-labelledby="studio-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="h2" id="studio-title">Lo studio</h2>
+          <p class="lead">Ambienti luminosi e ordinati, pensati per farti sentire a tuo agio dal momento in cui entri.</p>
+        </div>
+        <ul class="gallery">
+          <li class="gallery__item g1"><button type="button" data-lightbox="0"><img src="img/sala-attesa.jpg" alt="Sala d'attesa luminosa con sedute bianche e una pianta" width="1600" height="1067" loading="lazy"></button></li>
+          <li class="gallery__item g2"><button type="button" data-lightbox="1"><img src="img/studio-moderno.jpg" alt="Ambulatorio con poltrona odontoiatrica e arredi bianchi" width="1600" height="1070" loading="lazy"></button></li>
+          <li class="gallery__item g3"><button type="button" data-lightbox="2"><img src="img/dettaglio-specchietto.jpg" alt="Specchietto odontoiatrico in primo piano" width="1000" height="1500" loading="lazy"></button></li>
+          <li class="gallery__item g4"><button type="button" data-lightbox="3"><img src="img/poltrona.jpg" alt="Poltrona odontoiatrica in un ambulatorio con pavimento in legno" width="1400" height="933" loading="lazy"></button></li>
+          <li class="gallery__item g5"><button type="button" data-lightbox="4"><img src="img/angolo-attesa.jpg" alt="Angolo d'attesa con due poltroncine e una pianta" width="1200" height="800" loading="lazy"></button></li>
+          <li class="gallery__item g6"><button type="button" data-lightbox="5"><img src="img/strumenti.jpg" alt="Specchietto e sonda odontoiatrica su un piano bianco" width="1000" height="1333" loading="lazy"></button></li>
+        </ul>
+        <p class="note">Foto di esempio, da sostituire con le immagini reali dello studio.</p>
+      </div>
+    </section>
+
+    <!-- ================= LA PRIMA VISITA ================= -->
+    <section class="section section--mist first" id="prima-visita" aria-labelledby="first-title">
+      <div class="wrap first__grid">
+        <div class="first__media">
+          <div class="first__photo">
+            <img src="img/dentista-paziente.jpg" alt="Una dentista parla con una paziente seduta sulla poltrona" width="1600" height="1200" loading="lazy">
+          </div>
+        </div>
+        <div class="first__body">
+          <h2 class="h2" id="first-title">La prima visita</h2>
+          <p class="lead">Sapere cosa succede aiuta a sentirsi tranquilli. Ecco come si svolge, passo dopo passo.</p>
+          <ol class="steps">
+            <li class="step">
+              <span class="step__n" aria-hidden="true">1</span>
+              <div>
+                <h3 class="step__title">Accoglienza</h3>
+                <p>Ti riceviamo con calma, raccogliamo i tuoi dati e ascoltiamo il motivo della visita.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step__n" aria-hidden="true">2</span>
+              <div>
+                <h3 class="step__title">Visita e controllo</h3>
+                <p>Il professionista controlla denti e gengive e, se serve, propone gli esami necessari.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step__n" aria-hidden="true">3</span>
+              <div>
+                <h3 class="step__title">Spiegazione del piano di cura</h3>
+                <p>Ti spieghiamo con parole chiare cosa abbiamo visto e quali sono le possibili soluzioni.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step__n" aria-hidden="true">4</span>
+              <div>
+                <h3 class="step__title">Preventivo chiaro</h3>
+                <p>Ricevi un preventivo scritto e dettagliato, da valutare con tutto il tempo che ti serve.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= URGENZE ================= -->
+    <section class="urgent-wrap" id="urgenze" aria-labelledby="urgent-title">
+      <div class="wrap">
+        <div class="urgent">
+          <svg class="urgent__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c-8 0-13 5.6-13 13.4 0 5 2 8.4 3.2 12.6 1.4 5 1.5 10 4.3 10 3.2 0 2.6-7.4 5.5-7.4s2.3 7.4 5.5 7.4c2.8 0 2.9-5 4.3-10C35 27.8 37 24.4 37 19.4 37 11.6 32 6 24 6z"/><path d="M27 12l-4 7h5l-4 8"/></svg>
+          <div class="urgent__text">
+            <h2 class="urgent__title" id="urgent-title">Dolore improvviso o dente rotto? Chiamateci.</h2>
+            <p>Negli orari di apertura cerchiamo di trovare uno spazio il prima possibile per le situazioni urgenti.</p>
+          </div>
+          <a class="urgent__phone" data-tel>
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.6 4.2-2 1.3a10.6 10.6 0 0 0 5.8 5.8l1.3-2 4.2 1.6v3a1.8 1.8 0 0 1-1.9 1.8A16.4 16.4 0 0 1 4.8 5.4a1.8 1.8 0 0 1 1.8-1.9z"/></svg>
+            <span data-text="studio.phone"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq__grid">
+        <div>
+          <h2 class="h2" id="faq-title">Domande frequenti</h2>
+          <p class="lead">Risposte generali alle domande più comuni. Per il tuo caso specifico, chiedi pure allo studio.</p>
+        </div>
+        <div class="faq__list" data-faq></div>
+      </div>
+    </section>
+
+    <!-- ================= PRENOTA ================= -->
+    <section class="section section--deep book" id="prenota" aria-labelledby="book-title">
+      <div class="wrap book__grid">
+        <div class="book__call">
+          <h2 class="h2" id="book-title">Prenota una visita</h2>
+          <p class="lead">Il modo più semplice è una telefonata: la segreteria ti propone il primo orario adatto a te.</p>
+          <a class="book__number" data-tel><span data-text="studio.phone"></span></a>
+          <div class="book__btns">
+            <a class="btn btn--call" data-tel>
+              <span class="btn--call__ring" aria-hidden="true"></span>
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.6 4.2-2 1.3a10.6 10.6 0 0 0 5.8 5.8l1.3-2 4.2 1.6v3a1.8 1.8 0 0 1-1.9 1.8A16.4 16.4 0 0 1 4.8 5.4a1.8 1.8 0 0 1 1.8-1.9z"/></svg>
+              Chiama ora
+            </a>
+            <a class="btn btn--light" data-whatsapp hidden>
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.8A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 2.4 2.2 4.4 4.7 4.9l1-1.2 1.8.8-.4 1.6c-3.6.4-7.6-3.5-7.2-7.1L10.5 8l.8 1.8z"/></svg>
+              Scrivi su WhatsApp
+            </a>
+          </div>
+          <p class="book__hours" data-open-status></p>
+        </div>
+
+        <div class="book__form-wrap">
+          <form class="form" id="booking-form" novalidate>
+            <h3 class="form__title">Oppure richiedi un appuntamento</h3>
+            <p class="form__intro">Lasciaci i tuoi recapiti: lo studio ti contatterà per concordare giorno e ora.</p>
+
+            <div class="field">
+              <label for="f-name">Nome e cognome</label>
+              <input id="f-name" name="nome" type="text" autocomplete="name" required>
+              <p class="field__err" id="f-name-err" hidden>Scrivi il tuo nome e cognome.</p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-phone">Telefono</label>
+                <input id="f-phone" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required>
+                <p class="field__err" id="f-phone-err" hidden>Scrivi un numero di telefono valido.</p>
+              </div>
+              <div class="field">
+                <label for="f-email">Email <span class="optional">(facoltativa)</span></label>
+                <input id="f-email" name="email" type="email" autocomplete="email">
+                <p class="field__err" id="f-email-err" hidden>Controlla l'indirizzo email.</p>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-day">Giorno preferito</label>
+                <select id="f-day" name="giorno" data-day-options>
+                  <option value="Indifferente">Indifferente</option>
+                </select>
+              </div>
+              <fieldset class="field field--choice">
+                <legend>Fascia oraria</legend>
+                <div class="choices">
+                  <label class="choice"><input type="radio" name="fascia" value="Mattina"><span>Mattina</span></label>
+                  <label class="choice"><input type="radio" name="fascia" value="Pomeriggio"><span>Pomeriggio</span></label>
+                  <label class="choice"><input type="radio" name="fascia" value="Indifferente" checked><span>Indifferente</span></label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="field">
+              <label for="f-notes">Note <span class="optional">(facoltative)</span></label>
+              <textarea id="f-notes" name="note" rows="3" maxlength="300" aria-describedby="f-notes-hint"></textarea>
+              <p class="field__hint" id="f-notes-hint">Ad esempio i giorni in cui non sei disponibile. Non inserire informazioni sulla tua salute: ne parlerai direttamente con il professionista.</p>
+            </div>
+            <div class="field field--check">
+              <input id="f-consent" name="consenso" type="checkbox" required>
+              <label for="f-consent">Acconsento al trattamento dei miei dati personali per essere ricontattato, come descritto nell'<a data-privacy href="privacy.html">informativa privacy</a>.</label>
+              <p class="field__err" id="f-consent-err" hidden>Per inviare la richiesta serve il tuo consenso.</p>
+            </div>
+            <button class="btn btn--primary btn--block" type="submit">Invia la richiesta</button>
+          </form>
+
+          <div class="summary" id="booking-summary" hidden tabindex="-1">
+            <h3 class="form__title">Riepilogo della richiesta</h3>
+            <dl class="summary__list" data-summary></dl>
+            <p class="summary__note">Bozza dimostrativa: nel sito definitivo la richiesta arriverà allo studio via email.</p>
+            <button class="btn btn--ghost" type="button" data-summary-back>Modifica la richiesta</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATTI E ORARI ================= -->
+    <section class="section contacts" id="contatti" aria-labelledby="ct-title">
+      <div class="wrap contacts__grid">
+        <div class="contacts__info">
+          <h2 class="h2" id="ct-title">Contatti e orari</h2>
+
+          <div class="contact-lines">
+            <p class="contact-line">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.6a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.4" r="2.4"/></svg>
+              <span><span data-text="studio.address"></span>, <span data-text="studio.cap"></span> <span data-text="studio.city"></span> (<span data-text="studio.province"></span>)</span>
+            </p>
+            <p class="contact-line">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.6 4.2-2 1.3a10.6 10.6 0 0 0 5.8 5.8l1.3-2 4.2 1.6v3a1.8 1.8 0 0 1-1.9 1.8A16.4 16.4 0 0 1 4.8 5.4a1.8 1.8 0 0 1 1.8-1.9z"/></svg>
+              <a data-tel><span data-text="studio.phone"></span></a>
+            </p>
+            <p class="contact-line" data-if="studio.email">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M4 7l8 6 8-6"/></svg>
+              <a data-mail><span data-text="studio.email"></span></a>
+            </p>
+          </div>
+
+          <div class="hours">
+            <div class="hours__head">
+              <h3 class="h3">Orari</h3>
+              <span class="status" data-open-chip></span>
+            </div>
+            <table class="hours__table">
+              <caption class="sr-only">Orari di apertura settimanali</caption>
+              <tbody data-hours></tbody>
+            </table>
+          </div>
+
+          <div class="howto">
+            <div class="howto__item" data-if="parking">
+              <h3 class="howto__title">
+                <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M10 16.5v-9h3a2.8 2.8 0 0 1 0 5.6h-3"/></svg>
+                Parcheggio
+              </h3>
+              <p data-text="parking"></p>
+            </div>
+            <div class="howto__item" data-if="accessibility">
+              <h3 class="howto__title">
+                <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M6 8.5l6 1 6-1M12 9.5v5M9 21l3-6.5 3 6.5"/></svg>
+                Accessibilità
+              </h3>
+              <p data-text="accessibility"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map">
+          <div class="map__frame" data-map>
+            <div class="map__consent">
+              <svg class="i i--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.6a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.4" r="2.4"/></svg>
+              <p>La mappa è fornita da Google Maps, che potrebbe usare cookie propri.</p>
+              <button class="btn btn--ghost" type="button" data-map-load>Mostra la mappa</button>
+            </div>
+          </div>
+          <a class="btn btn--primary btn--block" data-maps target="_blank" rel="noopener">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg>
+            Apri in Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__name" data-text="studio.name"></p>
+          <p><span data-text="studio.address"></span><br><span data-text="studio.cap"></span> <span data-text="studio.city"></span> (<span data-text="studio.province"></span>)</p>
+          <p><a data-tel><span data-text="studio.phone"></span></a></p>
+          <p data-if="studio.email"><a data-mail><span data-text="studio.email"></span></a></p>
+        </div>
+        <dl class="footer__legal">
+          <div data-if="legal.company"><dt>Ragione sociale</dt><dd data-text="legal.company"></dd></div>
+          <div data-if="legal.vat"><dt>Partita IVA</dt><dd data-text="legal.vat"></dd></div>
+          <div data-if="doctor.albo.number"><dt>Iscrizione all'Albo</dt><dd>Albo degli Odontoiatri di <span data-text="doctor.albo.province"></span>, n. <span data-text="doctor.albo.number"></span></dd></div>
+          <div data-if="legal.medicalDirector"><dt>Direttore sanitario</dt><dd data-text="legal.medicalDirector"></dd></div>
+        </dl>
+      </div>
+      <div class="footer__bottom">
+        <ul class="footer__links">
+          <li><a data-privacy href="privacy.html">Privacy</a></li>
+          <li><a data-cookie href="cookie.html">Cookie</a></li>
+        </ul>
+        <p class="footer__credit" data-text="credit"></p>
+        <p class="footer__photos">Foto: Unsplash (Katarzyna Zygnerska, Benyamin Bohlouli, rawkkim, Kari Bjorn Photography, Craig Lovelidge, Caroline LM, Harold Hisona, Connor Wilkins).</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Barra rapida su telefono -->
+  <div class="quickbar" aria-label="Azioni rapide">
+    <a class="quickbar__btn" data-tel>
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.6 4.2-2 1.3a10.6 10.6 0 0 0 5.8 5.8l1.3-2 4.2 1.6v3a1.8 1.8 0 0 1-1.9 1.8A16.4 16.4 0 0 1 4.8 5.4a1.8 1.8 0 0 1 1.8-1.9z"/></svg>
+      Chiama
+    </a>
+    <a class="quickbar__btn quickbar__btn--primary" data-booking href="#prenota">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+      Prenota
+    </a>
+  </div>
+
+  <!-- Lightbox galleria -->
+  <dialog class="lightbox" id="lightbox" aria-label="Foto dello studio">
+    <figure class="lightbox__figure">
+      <img alt="">
+      <figcaption></figcaption>
+    </figure>
+    <button class="lightbox__btn lightbox__close" type="button" aria-label="Chiudi">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lightbox__btn lightbox__prev" type="button" aria-label="Foto precedente">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button class="lightbox__btn lightbox__next" type="button" aria-label="Foto successiva">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </dialog>
+</body>
+</html>
