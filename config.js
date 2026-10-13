@@ -23,8 +23,20 @@ window.STUDIO = {
     province: 'PE',
     phone: '085 000 0000',          // come viene mostrato
     phoneLink: '+390850000000',     // usato per il collegamento "Chiama"
-    whatsapp: '',                   // numero internazionale senza spazi, es. '393330000000'; vuoto = nascosto
+    whatsapp: '393000000000',       // numero di esempio, internazionale senza spazi; vuoto = nascosto
     email: 'info@example.com'
+  },
+
+  /* ---------- Testi principali ---------- */
+  hero: {
+    lines: ['Cure dentali attente,', 'in un ambiente sereno.'],
+    image: 'img/hero.jpg',
+    imageMobile: 'img/hero-mobile.jpg',
+    mirror: true                    // specchia la foto per lasciare spazio al testo a sinistra
+  },
+  approach: {
+    title: 'Ogni sorriso merita tempo, ascolto e precisione.',
+    text: 'Testo di esempio. Crediamo che una buona cura inizi da una conversazione: prima di proporre qualsiasi trattamento spieghiamo con calma cosa abbiamo visto, quali sono le possibilità e quali tempi richiede ciascuna. Lo studio è pensato per essere un luogo luminoso e tranquillo, dove sentirsi a proprio agio.'
   },
 
   /* ---------- Professionista ---------- */
@@ -33,10 +45,11 @@ window.STUDIO = {
     name: 'Nome Cognome',
     role: 'Odontoiatra',
     gender: 'f',                    // 'f' oppure 'm' (per "Iscritta/Iscritto")
-    photo: '',                      // es. 'img/dottore.jpg' — vuoto = riquadro segnaposto
+    photo: 'img/dottoressa.jpg',    // foto di esempio da Unsplash: sostituire con quella reale
+    photoIsExample: true,           // mostra la dicitura "Foto di esempio"
     intro: [
-      'Testo di presentazione di esempio. Qui il professionista può raccontare in poche righe come imposta il rapporto con i pazienti e il lavoro in studio.',
-      'Un secondo paragrafo facoltativo, anche questo di esempio, da sostituire con un testo scritto insieme al professionista.'
+      'Testo di presentazione di esempio. Qui il professionista racconta in poche righe il proprio percorso e il modo in cui imposta il rapporto con i pazienti.',
+      'Un secondo paragrafo, anche questo di esempio, può descrivere gli ambiti a cui si dedica con maggiore attenzione e l\'importanza dell\'aggiornamento continuo.'
     ],
     degree: {
       title: 'Laurea in Odontoiatria e Protesi Dentaria',
@@ -47,22 +60,27 @@ window.STUDIO = {
       province: 'Pescara',
       number: '0000'
     },
-    // Corsi e specializzazioni: una riga ciascuno
     courses: [
-      { year: '20XX', title: 'Corso di esempio in ortodonzia', org: 'Ente formativo di esempio' },
+      { year: '20XX', title: 'Corso di esempio in ortodonzia con allineatori', org: 'Ente formativo di esempio' },
       { year: '20XX', title: 'Corso di esempio in parodontologia', org: 'Ente formativo di esempio' },
       { year: '20XX', title: 'Corso di esempio in odontoiatria pediatrica', org: 'Ente formativo di esempio' }
     ]
   },
 
+  /* ---------- Numeri dello studio (dati di esempio) ---------- */
+  stats: [
+    { value: 20, suffix: '+', label: 'anni di esperienza' },
+    { value: 3500, suffix: '+', label: 'pazienti seguiti' },
+    { value: 8, suffix: '', label: 'aree di cura' },
+    { value: 3, suffix: '', label: 'sale operative' }
+  ],
+
   /* ---------- Prenotazioni ----------
-     bookingUrl: link a un sistema di prenotazione ufficiale (facoltativo).
+     bookingUrl: link a un sistema di prenotazione esterno (facoltativo).
      Se vuoto, "Prenota una visita" porta al modulo di richiesta. */
   bookingUrl: '',
 
-  /* ---------- Orari ----------
-     Giorni da lunedì a domenica. Ogni fascia: ['HH:MM', 'HH:MM'].
-     Lista vuota = chiuso. Orari di esempio. */
+  /* ---------- Orari (da lunedì a domenica; [] = chiuso) ---------- */
   hours: [
     { day: 'Lunedì',    slots: [['09:00', '13:00'], ['15:00', '19:00']] },
     { day: 'Martedì',   slots: [['09:00', '13:00'], ['15:00', '19:00']] },
@@ -73,65 +91,99 @@ window.STUDIO = {
     { day: 'Domenica',  slots: [] }
   ],
 
-  /* ---------- Trattamenti attivi ----------
-     true = mostrato, false = nascosto. */
-  treatments: {
-    igiene: true,
-    conservativa: true,
-    ortodonzia: true,
-    implantologia: true,
-    protesi: true,
-    estetica: true,
-    pedodonzia: true,
-    parodontologia: true
-  },
+  /* ---------- Trattamenti ----------
+     active: true = mostrato, false = nascosto. */
+  treatments: [
+    {
+      active: true,
+      name: 'Igiene e prevenzione',
+      image: 'img/tr-igiene.jpg',
+      text: 'La seduta di igiene professionale rimuove placca e tartaro che lo spazzolino non riesce a eliminare. I controlli periodici permettono di individuare per tempo carie e problemi gengivali, quando sono più semplici da trattare.',
+      benefits: ['Bocca più pulita e fresca', 'Controllo regolare di denti e gengive', 'Consigli personalizzati per l\'igiene di tutti i giorni']
+    },
+    {
+      active: true,
+      name: 'Conservativa ed endodonzia',
+      image: 'img/tr-conservativa.jpg',
+      text: 'La conservativa cura i denti colpiti da carie o piccole fratture con otturazioni e ricostruzioni nel colore del dente. L\'endodonzia, la cosiddetta devitalizzazione, interviene quando è coinvolta la polpa: i canali vengono puliti, disinfettati e sigillati.',
+      benefits: ['Si conserva il più possibile il dente naturale', 'Restauri in materiale del colore del dente', 'Si interviene prima che il problema si estenda']
+    },
+    {
+      active: true,
+      name: 'Ortodonzia e allineatori trasparenti',
+      image: 'img/tr-ortodonzia.jpg',
+      text: 'L\'ortodonzia corregge la posizione dei denti e il modo in cui le arcate si chiudono, nei bambini come negli adulti. Oltre agli apparecchi tradizionali sono disponibili gli allineatori trasparenti: mascherine su misura, rimovibili e poco visibili.',
+      benefits: ['Percorsi per bambini, ragazzi e adulti', 'Allineatori trasparenti e rimovibili', 'Controlli programmati durante tutto il trattamento']
+    },
+    {
+      active: true,
+      name: 'Implantologia',
+      image: 'img/tr-implantologia.jpg',
+      text: 'L\'impianto è una piccola radice in titanio inserita nell\'osso, su cui viene fissato un dente su misura. Prima di proporlo valutiamo con esami specifici la quantità di osso e lo stato di salute generale, e spieghiamo ogni fase del percorso.',
+      benefits: ['Sostituisce il dente mancante in modo fisso', 'Non richiede di limare i denti vicini', 'Fasi e tempi chiari fin dall\'inizio']
+    },
+    {
+      active: true,
+      name: 'Protesi',
+      image: 'img/tr-protesi.jpg',
+      text: 'Le protesi ricostruiscono denti molto danneggiati o sostituiscono quelli mancanti. Possono essere fisse, come corone e ponti, oppure rimovibili. Vengono realizzate su misura in collaborazione con il laboratorio odontotecnico.',
+      benefits: ['Soluzioni fisse o rimovibili', 'Ritorno a una masticazione confortevole', 'Forma e colore studiati sul singolo paziente']
+    },
+    {
+      active: true,
+      name: 'Estetica e sbiancamento',
+      image: 'img/sorriso.jpg',
+      text: 'Lo sbiancamento schiarisce il colore dei denti con prodotti professionali, sotto controllo medico. Altri trattamenti, come le faccette, migliorano forma e proporzioni dei denti. Ogni intervento parte da una valutazione della salute di denti e gengive.',
+      benefits: ['Valutazione preliminare accurata', 'Trattamenti eseguiti con prodotti professionali', 'Obiettivi realistici, concordati insieme']
+    },
+    {
+      active: true,
+      name: 'Pedodonzia',
+      image: 'img/tr-pedodonzia.jpg',
+      text: 'La pedodonzia è l\'odontoiatria dedicata ai bambini. Le prime visite servono a prendere confidenza con lo studio, con tempi e modi adatti all\'età, e a impostare fin da subito una buona prevenzione.',
+      benefits: ['Approccio graduale e sereno', 'Prevenzione fin dai primi denti', 'Indicazioni pratiche per i genitori']
+    },
+    {
+      active: true,
+      name: 'Parodontologia',
+      image: 'img/tr-parodontologia.jpg',
+      text: 'La parodontologia si occupa delle gengive e dei tessuti che sostengono i denti. Gengive che sanguinano o si ritirano sono un segnale da non trascurare: con una diagnosi precisa si imposta la terapia e un programma di mantenimento.',
+      benefits: ['Diagnosi dello stato delle gengive', 'Terapie di pulizia profonda', 'Programma di controlli nel tempo']
+    }
+  ],
 
   /* ---------- Google ----------
-     Voto e recensioni di esempio. rating vuoto = badge nascosto. */
+     Voto e recensioni di esempio. rating vuoto = sezione nascosta. */
   google: {
     rating: '4,9',
-    reviews: '00',
+    reviews: '120',
     reviewsUrl: ''                  // link alla scheda Google con le recensioni
   },
+  // Recensioni mostrate nel sito: QUELLE QUI SOTTO SONO DI ESEMPIO
+  reviewsAreExamples: true,
+  reviews: [
+    { author: 'Nome C.', text: 'Ambiente curato e personale molto gentile. Mi è stato spiegato tutto con calma prima di iniziare e ho apprezzato la puntualità.' },
+    { author: 'Nome C.', text: 'Ho portato mia figlia per la prima visita: è stata accolta con pazienza e ora va dal dentista volentieri.' },
+    { author: 'Nome C.', text: 'Studio luminoso e pulitissimo. Preventivo chiaro e dettagliato, senza sorprese.' }
+  ],
 
   /* ---------- Mappa ----------
-     mapsUrl: link "Apri in Google Maps".
-     mapsEmbedQuery: indirizzo o nome per la mappa incorporata.
      Per ora puntano alla sola città: nessun indirizzo inventato. */
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pescara',
   mapsEmbedQuery: 'Pescara',
 
   /* ---------- Come arrivare ---------- */
-  parking: 'Testo di esempio: indicare qui dove parcheggiare nelle vicinanze dello studio (parcheggi pubblici, strisce blu, eventuali posti riservati).',
-  accessibility: 'Testo di esempio: indicare qui se lo studio è al piano terra o servito da ascensore e se è accessibile in sedia a rotelle.',
+  parking: 'Testo di esempio: indicare qui dove parcheggiare nelle vicinanze dello studio.',
+  accessibility: 'Testo di esempio: indicare se lo studio è al piano terra o servito da ascensore.',
 
-  /* ---------- Domande frequenti ----------
-     Risposte generiche e prudenti: adattarle allo studio. */
+  /* ---------- Domande frequenti ---------- */
   faq: [
-    {
-      q: 'È possibile pagare a rate?',
-      a: 'Le modalità di pagamento disponibili, comprese eventuali soluzioni rateali, vengono illustrate in studio insieme al preventivo. Per informazioni puoi contattare la segreteria.'
-    },
-    {
-      q: 'Lo studio ha convenzioni con assicurazioni o fondi sanitari?',
-      a: 'Le eventuali convenzioni attive possono variare nel tempo. Ti consigliamo di chiedere direttamente alla segreteria indicando il nome della tua assicurazione o del tuo fondo.'
-    },
-    {
-      q: 'Dove posso parcheggiare?',
-      a: 'Trovi le indicazioni sul parcheggio nella sezione "Contatti e orari". Per qualsiasi dubbio puoi chiamare lo studio prima della visita.'
-    },
-    {
-      q: 'Visitate anche i bambini?',
-      a: 'Sì, è possibile prenotare una visita anche per i più piccoli. Alla prima visita è utile la presenza di un genitore; la segreteria può indicarti come prepararla.'
-    },
-    {
-      q: 'Cosa devo portare alla prima visita?',
-      a: 'Un documento d\'identità, la tessera sanitaria ed eventuali radiografie o documenti di visite precedenti, se li hai. Se assumi farmaci, ne parlerai direttamente con il professionista durante la visita.'
-    },
-    {
-      q: 'Come posso disdire o spostare un appuntamento?',
-      a: 'Puoi chiamare la segreteria negli orari di apertura. Avvisare con un po\' di anticipo permette di offrire l\'orario ad altri pazienti.'
-    }
+    { q: 'È possibile pagare a rate?', a: 'Le modalità di pagamento disponibili, comprese eventuali soluzioni rateali, vengono illustrate in studio insieme al preventivo.' },
+    { q: 'Lo studio ha convenzioni con assicurazioni o fondi sanitari?', a: 'Le convenzioni attive possono variare nel tempo: chiedi alla segreteria indicando il nome della tua assicurazione o del tuo fondo.' },
+    { q: 'Dove posso parcheggiare?', a: 'Trovi le indicazioni nella sezione "Dove trovarci" in fondo alla pagina. Per qualsiasi dubbio puoi chiamare lo studio prima della visita.' },
+    { q: 'Visitate anche i bambini?', a: 'Sì. Alla prima visita è utile la presenza di un genitore; la segreteria può indicarti come prepararla al meglio.' },
+    { q: 'Cosa devo portare alla prima visita?', a: 'Un documento d\'identità, la tessera sanitaria ed eventuali radiografie o documenti di visite precedenti.' },
+    { q: 'Come posso disdire o spostare un appuntamento?', a: 'Chiama la segreteria negli orari di apertura: avvisare con anticipo permette di offrire l\'orario ad altri pazienti.' }
   ],
 
   /* ---------- Dati legali (vuoto = nascosto) ---------- */
