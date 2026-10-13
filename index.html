@@ -219,13 +219,16 @@
           </div>
           <p class="section-head__text rv">Ambienti ordinati e accoglienti, dalla sala d'attesa alle sale operative. Tocca una foto per vederla a schermo intero.</p>
         </header>
-        <ul class="gallery">
+        <ul class="gallery" data-carousel aria-roledescription="carosello" aria-label="Foto dello studio">
           <li class="g g1 reveal-img" data-reveal="up"><button type="button" data-lightbox><img src="img/studio-moderno.jpg" alt="Ambulatorio con poltrona odontoiatrica e arredi bianchi" width="1600" height="1070" loading="lazy"></button></li>
           <li class="g g2 reveal-img" data-reveal="right"><button type="button" data-lightbox><img src="img/studio-ambulatorio-archi.jpg" alt="Ambulatorio luminoso con arredi chiari e archi decorativi" width="1000" height="667" loading="lazy"></button></li>
           <li class="g g3 reveal-img" data-reveal="up"><button type="button" data-lightbox><img src="img/poltrona.jpg" alt="Poltrona odontoiatrica in un ambulatorio con pavimento in legno" width="1400" height="933" loading="lazy"></button></li>
           <li class="g g4 reveal-img" data-reveal="left"><button type="button" data-lightbox><img src="img/angolo-attesa.jpg" alt="Angolo d'attesa con due poltroncine e una pianta" width="1200" height="800" loading="lazy"></button></li>
           <li class="g g5 reveal-img" data-reveal="up"><button type="button" data-lightbox><img src="img/dettaglio-spazzolini.jpg" alt="Spazzolini in bambù in un barattolo di vetro accanto a rami di eucalipto" width="1000" height="1000" loading="lazy"></button></li>
+          <!-- Solo su telefono: la foto della sala d'attesa diventa l'ultima slide del carosello -->
+          <li class="g g6 reveal-img" data-reveal="up"><button type="button" data-lightbox><img src="img/sala-attesa.jpg" alt="Sala d'attesa luminosa con sedute bianche e una pianta al centro" width="2200" height="1467" loading="lazy"></button></li>
         </ul>
+        <div class="gallery-dots" data-carousel-dots aria-label="Scegli la foto"></div>
       </div>
       <!-- Foto a tutta larghezza con parallax -->
       <figure class="wide reveal-img" data-reveal="up">

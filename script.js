@@ -514,7 +514,9 @@
     if (!dlg || !buttons.length || typeof dlg.showModal !== 'function') return;
     const img = $('img', dlg);
     const cap = $('figcaption', dlg);
-    const photos = buttons.map((b) => { const i = $('img', b); return { src: i.getAttribute('src'), alt: i.alt }; });
+    // Solo le foto visibili nel layout corrente (su telefono la sala d'attesa è nel carosello)
+    const visibleButtons = () => buttons.filter((b) => b.offsetParent !== null);
+    let photos = [];
     let index = 0;
     const show = (i) => {
       index = (i + photos.length) % photos.length;
@@ -525,7 +527,13 @@
     };
     buttons.forEach((b, i) => {
       b.setAttribute('aria-label', 'Apri la foto: ' + $('img', b).alt);
-      b.addEventListener('click', () => { show(i); dlg.showModal(); document.body.style.overflow = 'hidden'; });
+      b.addEventListener('click', () => {
+        const list = visibleButtons();
+        photos = list.map((x) => { const im = $('img', x); return { src: im.getAttribute('src'), alt: im.alt }; });
+        show(Math.max(list.indexOf(b), 0));
+        dlg.showModal();
+        document.body.style.overflow = 'hidden';
+      });
     });
     dlg.addEventListener('close', () => { document.body.style.overflow = ''; });
     $('.lightbox__close', dlg).addEventListener('click', () => dlg.close());
@@ -544,6 +552,56 @@
       if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
       x0 = null;
     });
+  }
+
+  /* ---------- Carosello "Lo studio" (telefono e tablet) ---------- */
+  function initCarousel() {
+    const track = $('[data-carousel]');
+    const dotsBox = $('[data-carousel-dots]');
+    if (!track || !dotsBox) return;
+    const mq = window.matchMedia('(max-width: 959px)');
+    const slides = $$('.g', track);
+    let dots = [];
+
+    const visibleSlides = () => slides.filter((s) => s.offsetParent !== null);
+    const build = () => {
+      dotsBox.replaceChildren();
+      dots = visibleSlides().map((s, i, all) => {
+        const d = el('button');
+        d.type = 'button';
+        d.setAttribute('aria-label', `Foto ${i + 1} di ${all.length}`);
+        d.addEventListener('click', () => {
+          const pad = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+          const left = track.scrollLeft + s.getBoundingClientRect().left - track.getBoundingClientRect().left - pad;
+          track.scrollTo({ left, behavior: reduced ? 'auto' : 'smooth' });
+        });
+        dotsBox.append(d);
+        return d;
+      });
+      update();
+    };
+    const update = () => {
+      const list = visibleSlides();
+      if (!list.length) return;
+      const step = list.length > 1 ? list[1].offsetLeft - list[0].offsetLeft : 1;
+      const i = Math.min(list.length - 1, Math.max(0, Math.round(track.scrollLeft / step)));
+      dots.forEach((d, k) => d.setAttribute('aria-current', String(k === i)));
+    };
+    let raf = 0;
+    track.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; update(); }); }, { passive: true });
+
+    // Le slide fuori schermo a destra non "entrano" mai nella finestra:
+    // quando il carosello compare, si svelano tutte in sequenza.
+    if (!reduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (!entries.some((e) => e.isIntersecting) || !mq.matches) return;
+        slides.forEach((s, i) => { s.style.setProperty('--d', Math.min(i * 0.12, 0.6) + 's'); s.classList.add('is-in'); });
+      }, { threshold: 0.15 });
+      io.observe(track);
+    }
+
+    mq.addEventListener('change', build);
+    build();
   }
 
   /* ---------- Modulo di richiesta appuntamento ----------
@@ -623,6 +681,7 @@
   initReveal();
   initParallax();
   initLightbox();
+  initCarousel();
   initForm();
   setInterval(updateOpenStatus, 60000);
 })();
