@@ -105,7 +105,8 @@ window.STUDIO = {
     {
       active: true,
       name: 'Conservativa ed endodonzia',
-      image: 'img/tr-conservativa.jpg',
+      image: 'img/tr-conservativa-consulenza.jpg',
+      alt: 'Il dentista mostra a una paziente la foto di un sorriso sullo schermo',
       text: 'Cura di carie e piccole fratture con otturazioni nel colore del dente; quando è coinvolta la polpa, devitalizzazione e sigillatura dei canali.',
       benefits: ['Si conserva il più possibile il dente naturale', 'Restauri in materiale del colore del dente', 'Si interviene prima che il problema si estenda']
     },
@@ -119,14 +120,16 @@ window.STUDIO = {
     {
       active: true,
       name: 'Implantologia',
-      image: 'img/tr-implantologia.jpg',
+      image: 'img/tr-implantologia-sorriso.jpg',
+      alt: 'Un signore sorridente e sereno',
       text: 'Una piccola radice in titanio inserita nell\'osso sostiene un dente su misura. Ogni fase viene valutata e spiegata prima di iniziare.',
       benefits: ['Sostituisce il dente mancante in modo fisso', 'Non richiede di limare i denti vicini', 'Fasi e tempi chiari fin dall\'inizio']
     },
     {
       active: true,
       name: 'Protesi',
-      image: 'img/tr-protesi.jpg',
+      image: 'img/tr-protesi-modello.jpg',
+      alt: 'Modello di arcata dentale su una mensola chiara',
       text: 'Corone, ponti e protesi rimovibili realizzate su misura con il laboratorio odontotecnico, per ricostruire o sostituire i denti mancanti.',
       benefits: ['Soluzioni fisse o rimovibili', 'Ritorno a una masticazione confortevole', 'Forma e colore studiati sul singolo paziente']
     },
@@ -140,14 +143,16 @@ window.STUDIO = {
     {
       active: true,
       name: 'Pedodonzia',
-      image: 'img/tr-pedodonzia.jpg',
+      image: 'img/tr-pedodonzia-bambina.jpg',
+      alt: 'Una bambina sorridente',
       text: 'Visite pensate per i più piccoli, con tempi e modi adatti all\'età, per prendere confidenza con lo studio e impostare la prevenzione.',
       benefits: ['Approccio graduale e sereno', 'Prevenzione fin dai primi denti', 'Indicazioni pratiche per i genitori']
     },
     {
       active: true,
       name: 'Parodontologia',
-      image: 'img/tr-parodontologia.jpg',
+      image: 'img/tr-parodontologia-tablet.jpg',
+      alt: 'Il dentista spiega a una paziente le immagini su un tablet',
       text: 'Diagnosi e cura delle gengive che sanguinano o si ritirano, con terapie di pulizia profonda e un programma di controlli nel tempo.',
       benefits: ['Diagnosi dello stato delle gengive', 'Terapie di pulizia profonda', 'Programma di controlli nel tempo']
     }
